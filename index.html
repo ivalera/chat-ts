@@ -53,10 +53,10 @@
                     <button class="chat__send-btn btn">-></button>
                 </form>
             </div>
-            <dialog class="setting__frame" id="setting">
-                <div class="setting__top">
+            <dialog class="setting__frame dialog__frame" id="setting">
+                <div class="dialog__top">
                     <h3 class="setting__title">Настройки</h3>
-                    <button class="setting__close btn" onclick="window.setting.close()"></button>
+                    <button class="btn__close btn" onclick="window.setting.close()"></button>
                 </div>
                 <h3 class="setting__name-title">Имя в чате</h3>
                 <form class="setting__form">
@@ -64,6 +64,34 @@
                     <button class="setting__change-btn btn">-></button>
                 </form>
             </dialog>
+            <dialog class="auth__frame dialog__frame" id="authorization">
+                <div class="dialog__top">
+                    <h3 class="auth__title">Авторизация</h3>
+                    <button class="btn__close btn" onclick="window.authorization.close()"></button>
+                </div>
+                <h3 class="auth__name-title"></h3>
+                <form class="auth__form">
+                    <h3 class="auth__form-title">Почта:</h3>
+                    <input class="auth__email" type="email" placeholder="ваша почта..">
+                    <div class="auth__wrapper-btn">
+                        <button class="auth__send-code-btn btn">Получить код</button>
+                        <button class="auth__confirm-code-btn btn" type="button">Ввести код</button>
+                    </div>
+                    <p class="codeAlert"></p>
+                </form>
+            </dialog>
+            <dialog class="confirm__frame dialog__frame" id="confirmation">
+                <div class="dialog__top">
+                    <h3 class="confirm__title">Подтверждение</h3>
+                    <button class="btn__close btn" onclick="window.confirmation.close()"></button>
+                </div>
+                <h3 class="confirm__name-title"></h3>
+                <form class="confirm__form">
+                    <h3 class="confirm__form-title">Код:</h3>
+                    <input class="confirm__code" type="text" placeholder="ваш код..">
+                    <button class="confirm__btn btn">Войти</button>
+                </form>
+            </dialog>           
         </section>
     </body>
     <script src="./build/script.js" type="module"></script>

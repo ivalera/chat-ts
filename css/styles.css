@@ -40,6 +40,8 @@ body{
 }
 .chat__messages-place{
     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     width: 304px;
     height: 437px;
     padding: 5px;
@@ -48,9 +50,8 @@ body{
 }
 .chat__messages-list{
     display: flex;
-    flex-grow: 1;
     flex-direction: column;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 .chat__message{
     margin-bottom: 5px;
@@ -74,7 +75,7 @@ body{
     font-size: 14px;
     text-align: right;
 }
-.chat__form-send{
+.chat__form-msg-send{
     margin-top: 8px;
     position: relative;
     display: flex;
@@ -101,7 +102,7 @@ body{
     background-color: #5e55d676;
     transition: background-color .3s;
 }
-.setting__frame{
+.dialog__frame{
     position: absolute;
     left: 50%;
     top: 50%;
@@ -114,25 +115,26 @@ body{
     font-size: 16px;
     color: #fff;
 }
-.setting__top{
+.dialog__top{
     display: flex;
     justify-content: space-between;
 }
-.setting__name-title{
-    margin-top: 20px;
-}
-.setting__close{
+
+.btn__close{
     width: 18px;
     height: 18px;
     background: #242424 url("../img/close-icon.svg") center no-repeat;
+}
+dialog:-internal-dialog-in-top-layer::backdrop{
+    backdrop-filter: blur(10px);
+}
+.setting__name-title{
+    margin-top: 20px;
 }
 .setting__form{
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
-}
-dialog:-internal-dialog-in-top-layer::backdrop{
-    backdrop-filter: blur(10px);
 }
 .setting__change-user{
     width: 207px;
@@ -142,4 +144,47 @@ dialog:-internal-dialog-in-top-layer::backdrop{
 .setting__change-btn{
     width: 29px;
     height: 32px;
+}
+.auth__form{
+    margin-top: 65px;
+}
+.auth__form-title{
+    font-size: 14px;
+}
+.auth__email{
+    margin-top: 5px;
+    width: 100%;
+    height: 32px;
+    padding: 5px;
+}
+.auth__wrapper-btn{
+    margin-top: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+.auth__send-code-btn{
+    width: 49%;
+}
+.auth__confirm-code-btn{
+    width: 49%;
+}
+.codeAlert{
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+}
+.confirm__form{
+    margin-top: 65px;
+}
+.confirm__form-title{
+    font-size: 14px;
+}
+.confirm__code{
+    margin-top: 5px;
+    width: 100%;
+    height: 32px;
+    padding: 5px;
+}
+.confirm__btn{
+    margin-top: 6px;
 }
