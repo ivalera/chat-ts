@@ -145,6 +145,11 @@ dialog:-internal-dialog-in-top-layer::backdrop{
     width: 29px;
     height: 32px;
 }
+.notification__text{
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+}
 .auth__form{
     margin-top: 65px;
 }

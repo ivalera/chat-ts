@@ -20,7 +20,7 @@
             <div class="chat">
                 <div class="chat__btn-block">
                     <button class="chat__settings btn" onclick="window.setting.showModal()">Настройки</button>
-                    <button class="chat__leave btn">Выйти</button>
+                    <button class="chat__exit-btn btn">Выйти</button>
                 </div>
                 <div class="chat__messages-place">
                     <ul class="chat__messages-list">
@@ -60,14 +60,14 @@
                 </div>
                 <h3 class="setting__name-title">Имя в чате</h3>
                 <form class="setting__form">
-                    <input class="setting__change-user" type="text" placeholder="Валера">
+                    <input class="setting__change-user" type="text" placeholder="Поменяй имя ...">
                     <button class="setting__change-btn btn">-></button>
                 </form>
+                <p class="setting__alert notification__text"></p>
             </dialog>
             <dialog class="auth__frame dialog__frame" id="authorization">
                 <div class="dialog__top">
                     <h3 class="auth__title">Авторизация</h3>
-                    <button class="btn__close btn" onclick="window.authorization.close()"></button>
                 </div>
                 <h3 class="auth__name-title"></h3>
                 <form class="auth__form">
@@ -83,7 +83,6 @@
             <dialog class="confirm__frame dialog__frame" id="confirmation">
                 <div class="dialog__top">
                     <h3 class="confirm__title">Подтверждение</h3>
-                    <button class="btn__close btn" onclick="window.confirmation.close()"></button>
                 </div>
                 <h3 class="confirm__name-title"></h3>
                 <form class="confirm__form">
