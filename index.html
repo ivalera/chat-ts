@@ -18,31 +18,15 @@
         <section class="main">
             <h2 class="theme__title">Чат</h2>
             <div class="chat">
-                <div class="chat__btn-block">
-                    <button class="chat__settings btn" onclick="window.setting.showModal()">Настройки</button>
+                <div class="chat__btn-wrapper">
+                    <button class="chat__settings btn">Настройки</button>
                     <button class="chat__exit-btn btn">Выйти</button>
                 </div>
                 <div class="chat__messages-place">
                     <ul class="chat__messages-list">
-                        <li class="chat__message user1">
-                            <p class="chat__message-text">Я: Хочу видеть красоту в этом чате!</p>
-                            <p class="chat__message-time">18:47</p>
-                        </li>
-                        <li class="chat__message user2">
-                            <p class="chat__message-text">Собеседник: Чего надо?</p>
-                            <p class="chat__message-time">18:46</p>
-                        </li>
-                        <li class="chat__message user1">
-                            <p class="chat__message-text">Я: Добрый день!</p>
-                            <p class="chat__message-time">18:45</p>
-                        </li>
-                        <li class="chat__message user2">
-                            <p class="chat__message-text">Собеседник: Добрый день! Напишу больше текста.</p>
-                            <p class="chat__message-time">15:44</p>
-                        </li>
                         <template id="message">
-                            <li class="chat__message user1">
-                                <p class="chat__message-text">Я: Хочу видеть красоту в этом чате!</p>
+                            <li class="chat__message">
+                                <span class="chat__message-user">Я:</span><p class="chat__message-text"> Хочу видеть красоту в этом чате!</p>
                                 <p class="chat__message-time">18:47</p>
                             </li>
                         </template>
@@ -63,7 +47,7 @@
                     <input class="setting__change-user" type="text" placeholder="Поменяй имя ...">
                     <button class="setting__change-btn btn">-></button>
                 </form>
-                <p class="setting__alert notification__text"></p>
+                <p class="setting__warning notification__text"></p>
             </dialog>
             <dialog class="auth__frame dialog__frame" id="authorization">
                 <div class="dialog__top">
@@ -90,6 +74,7 @@
                     <input class="confirm__code" type="text" placeholder="ваш код..">
                     <button class="confirm__btn btn">Войти</button>
                 </form>
+                <p class="codeAlert"></p>
             </dialog>           
         </section>
     </body>
