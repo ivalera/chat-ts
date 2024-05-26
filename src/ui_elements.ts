@@ -60,7 +60,7 @@ const SETTINGS_DIALOG: SettingsUI = {
 }
 
 const ADDITIONAL_ELEMENTS: AdditionalUI = {
-    INFO_ALERT: document.querySelector('.codeAlert'),
+    INFO_ALERT: document.querySelector('.info_alert'),
     BUTTON_EXIT: document.querySelector('.chat__exit-btn')
 };
 

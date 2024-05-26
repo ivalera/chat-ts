@@ -23,7 +23,7 @@ const SETTINGS_DIALOG = {
     INFO_ALERT: document.querySelector('.setting__warning')
 };
 const ADDITIONAL_ELEMENTS = {
-    INFO_ALERT: document.querySelector('.codeAlert'),
+    INFO_ALERT: document.querySelector('.info_alert'),
     BUTTON_EXIT: document.querySelector('.chat__exit-btn')
 };
 export { MESSAGE_ELEMENTS, AUTHORIZATION_ELEMENTS, CONFIRM_DIALOG, SETTINGS_DIALOG, ADDITIONAL_ELEMENTS };

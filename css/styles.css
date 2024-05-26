@@ -126,24 +126,25 @@ body{
     justify-content: space-between;   
 }
 .chat__send-text{
-    width: 267px;
+    width: 100%;
     height: 32px;
     padding: 5px;
 }
 .chat__send-btn{
+    margin-left: 5px;
     width: 29px;
     height: 32px;
 }
 .btn{
     padding: 5px;
-    color: #fff;
-    border: 1px solid #fff;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
 }
 .btn:hover{
-    background-color: #5E55D6;
+    background-color: var(--theme-main-color-strada);
 }
 .btn:active{
-    background-color: #5e55d676;
+    background-color: var(--theme-main-color-btn-transparent);
     transition: background-color .3s;
 }
 .dialog__frame{
@@ -154,10 +155,10 @@ body{
     width: 273px;
     height: 319px;
     padding: 10px;
-    background-color: #242424;
-    border: 2px solid #5E55D6;
+    background-color: var(--theme-main-color-black);
+    border: 2px solid var(--theme-main-color-strada);
     font-size: 16px;
-    color: #fff;
+    color: var(--white-color);
 }
 .dialog__top{
     display: flex;
@@ -167,7 +168,7 @@ body{
 .btn__close{
     width: 18px;
     height: 18px;
-    background: #242424 url("../img/close-icon.svg") center no-repeat;
+    background: var(--theme-main-color-black) url("../img/close-icon.svg") center no-repeat;
 }
 dialog:-internal-dialog-in-top-layer::backdrop{
     backdrop-filter: blur(10px);
@@ -188,11 +189,6 @@ dialog:-internal-dialog-in-top-layer::backdrop{
 .setting__change-btn{
     width: 29px;
     height: 32px;
-}
-.notification__text{
-    text-align: center;
-    margin-top: 5px;
-    font-size: 14px;
 }
 .auth__form{
     margin-top: 65px;
@@ -217,7 +213,12 @@ dialog:-internal-dialog-in-top-layer::backdrop{
 .auth__confirm-code-btn{
     width: 49%;
 }
-.codeAlert{
+.notification__text{
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+}
+.info_alert{
     text-align: center;
     margin-top: 5px;
     font-size: 14px;
@@ -236,4 +237,22 @@ dialog:-internal-dialog-in-top-layer::backdrop{
 }
 .confirm__btn{
     margin-top: 6px;
+}
+@media (min-width: 1024px){
+    .chat__message{
+        max-width: 920px;
+    }
+}
+@media (max-width: 1024px){
+    .chat__message{
+        max-width: 580px;
+    }
+}
+@media (max-width: 640px){
+    .form__search-input{
+        width: 200px;
+    }
+    .chat__message{
+        max-width: 320px;
+    }
 }
