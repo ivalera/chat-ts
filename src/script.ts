@@ -3,8 +3,9 @@ import Cookies from "js-cookie";
 import { senTokenToEmail, getUserRequest, changeUserNameRequest } from "./requests.js";
 import { AUTHORIZATION_ELEMENTS, CONFIRM_DIALOG, MESSAGE_ELEMENTS, SETTINGS_DIALOG, ADDITIONAL_ELEMENTS  } from "./ui_elements.js";
 import { initialChat, setDynamicOutputMessagesHeight } from "./initial.js";
-import { WEB_SOKET_URL, closeWebSocket } from "./websocket.js";
+import { WEB_SOKET_URL, closeWebSocket, connectWebSocket } from "./websocket.js";
 import { scrollHandler } from "./scroll.js";
+import { renderMessages } from "./messages.js";
 
 AUTHORIZATION_ELEMENTS.DIALOG?.showModal();
 AUTHORIZATION_ELEMENTS.FORM?.addEventListener('submit', sendAuthCode);
@@ -59,8 +60,11 @@ function sendAuthCode(event: Event){
 }
 
 function showConfirmTokenDialog(){
+
     AUTHORIZATION_ELEMENTS.DIALOG?.close();
     CONFIRM_DIALOG.DIALOG?.showModal();
+
+   
 }
 
 async function confirmTokenAuthorization(event: Event){
@@ -91,6 +95,10 @@ async function confirmTokenAuthorization(event: Event){
         CONFIRM_DIALOG.DIALOG.close();
 
         Cookies.set('userToken', userToken, { expires: 3 });
+
+        connectWebSocket(userToken as string);
+        renderMessages();
+        setDynamicOutputMessagesHeight();
     }
     catch(error){
         console.error("Ошибка при обработке запроса пользователя:", error);

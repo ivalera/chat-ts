@@ -39,7 +39,11 @@ async function loadMessages() {
 async function renderMessages() {  
     if(!MESSAGE_ELEMENTS.LIST) return;
 	const previousScrollHeight = MESSAGE_ELEMENTS.LIST.scrollHeight; 
-    if(!isEndMessage) return;
+    if(!isEndMessage) {
+        console.log('endmsg');
+        return;
+    }
+    console.log('hello');
     if(messagesCurrent + MESSAGE_NEXT === MESSAGES_ALL && isEndMessage) {
 		isEndMessage = false;
 		const endMesseges = document.createElement("div");
@@ -49,6 +53,7 @@ async function renderMessages() {
 		return;
 	}
     await loadMessages();
+    console.log('hello load');
     const messages = messagesAll.slice(messagesCurrent, messagesCurrent + MESSAGE_NEXT);
     messages.map(element => {
         createMessage((element), 'prepend');

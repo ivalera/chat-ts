@@ -7,12 +7,15 @@ const INITIAL_HEIGHT_CHAT_PLACE = 258;
 
 function initialChat() {
     const userToken = Cookies.get('userToken');
-    if(!userToken) AUTHORIZATION_ELEMENTS.DIALOG?.showModal();
-
+    if(userToken === undefined) {
+        console.log('yes');
+        AUTHORIZATION_ELEMENTS.DIALOG?.showModal();
+        return;
+    }
     AUTHORIZATION_ELEMENTS.DIALOG?.close();
-    setDynamicOutputMessagesHeight();
     connectWebSocket(userToken as string);
     renderMessages();
+    setDynamicOutputMessagesHeight();
 }
 
 function setDynamicOutputMessagesHeight() {
