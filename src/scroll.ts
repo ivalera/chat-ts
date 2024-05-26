@@ -1,3 +1,4 @@
+import { renderMessages } from "./messages.js";
 import { MESSAGE_ELEMENTS } from "./ui_elements.js";
 
 function scrollMessagesToStart() {
@@ -6,4 +7,11 @@ function scrollMessagesToStart() {
     }
 }
 
-export { scrollMessagesToStart }
+function scrollHandler() {
+    let elemScrollTop = MESSAGE_ELEMENTS.LIST?.scrollTop;
+    if(elemScrollTop === 0) {
+        renderMessages();
+    }
+}
+
+export { scrollMessagesToStart, scrollHandler };

@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 import { getUsersMessages } from './requests.js';
 import { MESSAGE_ELEMENTS } from './ui_elements.js';
+import { saveMessages } from './local_storage.js';
 
 const MY_EMAIL = "ivalera.devel@gmail.com";
 
@@ -15,6 +16,11 @@ export interface Messages {
 	user: User;
 }
 
+let messagesCurrent = 0;
+const MESSAGE_NEXT = 20;
+const MESSAGES_ALL = 300;
+let isEndMessage = true;
+
 let messagesAll: Messages[] = [];
 
 async function loadMessages() {
@@ -24,20 +30,31 @@ async function loadMessages() {
             console.log('Сообщения не загружены!')
         }
         messagesAll = messagesData.messages;
+        saveMessages(messagesAll);
     } catch (error){
         console.log(error);
     }
 }
 
 async function renderMessages() {  
-    if(!MESSAGE_ELEMENTS.LIST) { return }
-	const previousScrollHeight = MESSAGE_ELEMENTS.LIST.scrollHeight;  
+    if(!MESSAGE_ELEMENTS.LIST) return;
+	const previousScrollHeight = MESSAGE_ELEMENTS.LIST.scrollHeight; 
+    if(!isEndMessage) return;
+    if(messagesCurrent + MESSAGE_NEXT === MESSAGES_ALL && isEndMessage) {
+		isEndMessage = false;
+		const endMesseges = document.createElement("div");
+		endMesseges.classList.add('messages__end');
+		endMesseges.textContent = 'Вся история загружена';
+		MESSAGE_ELEMENTS.LIST.prepend(endMesseges);
+		return;
+	}
     await loadMessages();
-    const messages = messagesAll;
+    const messages = messagesAll.slice(messagesCurrent, messagesCurrent + MESSAGE_NEXT);
     messages.map(element => {
         createMessage((element), 'prepend');
     });
     MESSAGE_ELEMENTS.LIST.scrollTop = MESSAGE_ELEMENTS.LIST.scrollHeight - previousScrollHeight;
+    messagesCurrent += MESSAGE_NEXT;
 }
 
 function createMessage(message: Messages, addMessageMethd = 'append') {

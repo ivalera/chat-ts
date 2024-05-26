@@ -2,7 +2,8 @@ const MESSAGE_ELEMENTS = {
     SEND_FORM: document.querySelector('.chat__form-msg-send'),
     TEXT_INPUT: document.querySelector('.chat__send-text'),
     TEMPLATE: document.querySelector('#message'),
-    LIST: document.querySelector('.chat__messages-list')
+    LIST: document.querySelector('.chat__messages-list'),
+    OUTPUT_PLACE: document.querySelector('.chat__messages-place')
 };
 const AUTHORIZATION_ELEMENTS = {
     DIALOG: document.querySelector('.auth__frame'),
@@ -24,6 +25,7 @@ const SETTINGS_DIALOG = {
 };
 const ADDITIONAL_ELEMENTS = {
     INFO_ALERT: document.querySelector('.info_alert'),
-    BUTTON_EXIT: document.querySelector('.chat__exit-btn')
+    BUTTON_EXIT: document.querySelector('.chat__exit-btn'),
+    MAIN_SECTION: document.querySelector('.main')
 };
 export { MESSAGE_ELEMENTS, AUTHORIZATION_ELEMENTS, CONFIRM_DIALOG, SETTINGS_DIALOG, ADDITIONAL_ELEMENTS };

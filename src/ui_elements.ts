@@ -3,6 +3,7 @@ interface MessagesUI {
     TEXT_INPUT: HTMLInputElement | null;
     TEMPLATE: HTMLTemplateElement | null;
     LIST: HTMLUListElement | null;
+    OUTPUT_PLACE: HTMLDivElement | null;
 }
 
 interface AutorizationUI {
@@ -28,14 +29,17 @@ interface SettingsUI {
 
 interface AdditionalUI {
     INFO_ALERT: HTMLParagraphElement | null,
-    BUTTON_EXIT: HTMLButtonElement | null
+    BUTTON_EXIT: HTMLButtonElement | null,
+    MAIN_SECTION: HTMLElement | null
 }
 
 const MESSAGE_ELEMENTS: MessagesUI = {
     SEND_FORM: document.querySelector('.chat__form-msg-send'),
     TEXT_INPUT: document.querySelector('.chat__send-text'),
     TEMPLATE: document.querySelector('#message'),
-    LIST: document.querySelector('.chat__messages-list')
+    LIST: document.querySelector('.chat__messages-list'),
+    OUTPUT_PLACE: document.querySelector('.chat__messages-place')
+
 };
 
 const AUTHORIZATION_ELEMENTS: AutorizationUI = {
@@ -61,7 +65,8 @@ const SETTINGS_DIALOG: SettingsUI = {
 
 const ADDITIONAL_ELEMENTS: AdditionalUI = {
     INFO_ALERT: document.querySelector('.info_alert'),
-    BUTTON_EXIT: document.querySelector('.chat__exit-btn')
+    BUTTON_EXIT: document.querySelector('.chat__exit-btn'),
+    MAIN_SECTION: document.querySelector('.main')
 };
 
 export { MESSAGE_ELEMENTS, AUTHORIZATION_ELEMENTS, CONFIRM_DIALOG, SETTINGS_DIALOG, ADDITIONAL_ELEMENTS };

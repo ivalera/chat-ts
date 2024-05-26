@@ -1,16 +1,19 @@
 import Cookies from "js-cookie";
 import { senTokenToEmail, getUserRequest, changeUserNameRequest } from "./requests.js";
 import { AUTHORIZATION_ELEMENTS, CONFIRM_DIALOG, MESSAGE_ELEMENTS, SETTINGS_DIALOG, ADDITIONAL_ELEMENTS } from "./ui_elements.js";
-import { initialChat } from "./initial.js";
+import { initialChat, setDynamicOutputMessagesHeight } from "./initial.js";
 import { WEB_SOKET_URL, closeWebSocket } from "./websocket.js";
+import { scrollHandler } from "./scroll.js";
 AUTHORIZATION_ELEMENTS.DIALOG?.showModal();
 AUTHORIZATION_ELEMENTS.FORM?.addEventListener('submit', sendAuthCode);
 AUTHORIZATION_ELEMENTS.CONFIRM_TOKEN_BTN?.addEventListener('click', showConfirmTokenDialog);
 CONFIRM_DIALOG.FORM?.addEventListener('submit', confirmTokenAuthorization);
 MESSAGE_ELEMENTS.SEND_FORM?.addEventListener('submit', sendMessage);
+MESSAGE_ELEMENTS.LIST?.addEventListener('scroll', scrollHandler);
 SETTINGS_DIALOG.BUTTON_OPEN?.addEventListener('click', showSetting);
 SETTINGS_DIALOG.FORM?.addEventListener('submit', changeUserName);
 ADDITIONAL_ELEMENTS.BUTTON_EXIT?.addEventListener('click', exitChat);
+window.addEventListener('resize', setDynamicOutputMessagesHeight);
 initialChat();
 function exitChat() {
     Cookies.remove('userToken');
