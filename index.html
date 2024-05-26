@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Чат</title>
+      <script type="module" crossorigin src="/assets/index-BiNVTamV.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-DZPJqr6S.css">
+    </head>
+    <body>
+        <section class="header">
+            <h2>Strada</h2>
+            <div style="width: 100px"></div>
+            <div style="width: 100px"></div>
+        </section>
+        <section class="main">
+            <h2 class="theme__title">Чат</h2>
+            <div class="chat">
+                <div class="chat__btn-wrapper">
+                    <button class="chat__setting-btn btn">Настройки</button>
+                    <button class="chat__exit-btn btn">Выйти</button>
+                </div>
+                <div class="chat__messages-place">
+                    <ul class="chat__messages-list">
+                        <template id="message">
+                            <li class="chat__message">
+                                <span class="chat__message-user">Я:</span><p class="chat__message-text"> Хочу видеть красоту в этом чате!</p>
+                                <p class="chat__message-time">18:47</p>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+                <form class="chat__form-msg-send">
+                    <input class="chat__send-text" type="text" placeholder="сообщение..">
+                    <button class="chat__send-btn btn">-></button>
+                </form>
+            </div>
+            <dialog class="setting__frame dialog__frame" id="setting">
+                <div class="dialog__top">
+                    <h3 class="setting__title">Настройки</h3>
+                    <button class="btn__close btn" onclick="window.setting.close()"></button>
+                </div>
+                <h3 class="setting__name-title">Имя в чате</h3>
+                <form class="setting__form">
+                    <input class="setting__change-user" type="text" placeholder="Поменяй имя ...">
+                    <button class="setting__change-btn btn">-></button>
+                </form>
+                <p class="setting__warning notification__text"></p>
+            </dialog>
+            <dialog class="auth__frame dialog__frame" id="authorization">
+                <div class="dialog__top">
+                    <h3 class="auth__title">Авторизация</h3>
+                </div>
+                <h3 class="auth__name-title"></h3>
+                <form class="auth__form">
+                    <h3 class="auth__form-title">Почта:</h3>
+                    <input class="auth__email" type="email" placeholder="ваша почта..">
+                    <div class="auth__wrapper-btn">
+                        <button class="auth__send-code-btn btn">Получить код</button>
+                        <button class="auth__confirm-code-btn btn" type="button">Ввести код</button>
+                    </div>
+                    <p class="info_alert"></p>
+                </form>
+            </dialog>
+            <dialog class="confirm__frame dialog__frame" id="confirmation">
+                <div class="dialog__top">
+                    <h3 class="confirm__title">Подтверждение</h3>
+                </div>
+                <h3 class="confirm__name-title"></h3>
+                <form class="confirm__form">
+                    <h3 class="confirm__form-title">Код:</h3>
+                    <input class="confirm__code" type="text" placeholder="ваш код..">
+                    <button class="confirm__btn btn">Войти</button>
+                </form>
+                <p class="info_alert"></p>
+            </dialog>           
+        </section>
+    </body>
+</html>
