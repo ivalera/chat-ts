@@ -6,8 +6,8 @@
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Чат</title>
-      <script type="module" crossorigin src="/chat-ts/assets/index-D7phu39G.js"></script>
-      <link rel="stylesheet" crossorigin href="/chat-ts/assets/index-CujwQEcD.css">
+      <script type="module" crossorigin src="/chat-ts/assets/index-B2_PO8BS.js"></script>
+      <link rel="stylesheet" crossorigin href="/chat-ts/assets/index-DfhdyLE3.css">
     </head>
     <body>
         <section class="header">
@@ -20,9 +20,16 @@
             <div class="chat">
                 <div class="chat__btn-wrapper">
                     <button class="chat__setting-btn btn">Настройки</button>
+                    <form class="form__search">
+                        <input class="form__search-input" type="text" placeholder="поиск сообщения(-ий)">
+                        <button type="button" class="btn__clear_search btn"></button>
+                        <button type="submit" class="form__search-btn btn">Найти</button>
+                    </form>
                     <button class="chat__exit-btn btn">Выйти</button>
                 </div>
                 <div class="chat__messages-place">
+                    <ul class="chat__search-list">
+                    </ul>
                     <ul class="chat__messages-list">
                         <template id="message">
                             <li class="chat__message">
