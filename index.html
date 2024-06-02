@@ -20,9 +20,16 @@
             <div class="chat">
                 <div class="chat__btn-wrapper">
                     <button class="chat__setting-btn btn">Настройки</button>
+                    <form class="form__search">
+                        <input class="form__search-input" type="text" placeholder="поиск сообщения(-ий)">
+                        <button type="button" class="btn__clear_search btn"></button>
+                        <button type="submit" class="form__search-btn btn">Найти</button>
+                    </form>
                     <button class="chat__exit-btn btn">Выйти</button>
                 </div>
                 <div class="chat__messages-place">
+                    <ul class="chat__search-list">
+                    </ul>
                     <ul class="chat__messages-list">
                         <template id="message">
                             <li class="chat__message">

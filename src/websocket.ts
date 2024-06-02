@@ -24,7 +24,7 @@ function connectWebSocket(userToken: string) {
 
 	webSocket.onerror = function(error) {
         console.log(error);
-		webSocket?.close();
+		closeWebSocket();
 	};
 }
 

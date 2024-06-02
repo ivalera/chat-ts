@@ -21,6 +21,7 @@ const MESSAGE_NEXT = 20;
 const MESSAGES_ALL = 300;
 let isEndMessage = true;
 
+
 let messagesAll: Messages[] = [];
 
 async function loadMessages() {
@@ -40,10 +41,8 @@ async function renderMessages() {
     if(!MESSAGE_ELEMENTS.LIST) return;
 	const previousScrollHeight = MESSAGE_ELEMENTS.LIST.scrollHeight; 
     if(!isEndMessage) {
-        console.log('endmsg');
         return;
     }
-    console.log('hello');
     if(messagesCurrent + MESSAGE_NEXT === MESSAGES_ALL && isEndMessage) {
 		isEndMessage = false;
 		const endMesseges = document.createElement("div");
@@ -53,7 +52,6 @@ async function renderMessages() {
 		return;
 	}
     await loadMessages();
-    console.log('hello load');
     const messages = messagesAll.slice(messagesCurrent, messagesCurrent + MESSAGE_NEXT);
     messages.map(element => {
         createMessage((element), 'prepend');
@@ -62,11 +60,22 @@ async function renderMessages() {
     messagesCurrent += MESSAGE_NEXT;
 }
 
-function createMessage(message: Messages, addMessageMethd = 'append') {
+function createTemplate(): HTMLDivElement | null {
+    try {
+        const templateContent = MESSAGE_ELEMENTS.TEMPLATE?.content.cloneNode(true) as HTMLTemplateElement;
+        const templateMessage = templateContent.querySelector('.chat__message') as HTMLDivElement;
+        if (!templateMessage) return null;
+        return templateMessage;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
+function createMessage(message: Messages, addMessageMethod = 'append') {
     try{
         let messageEmail = message.user.email;
-        const templateContent = MESSAGE_ELEMENTS.TEMPLATE?.content.cloneNode(true) as HTMLTemplateElement;
-        const templateMessage = templateContent.querySelector('.chat__message');
+        const templateMessage = createTemplate();
         const userMessage = templateMessage?.querySelector('.chat__message-user');
         const textMessage = templateMessage?.querySelector('.chat__message-text');
         const timeMessage = templateMessage?.querySelector('.chat__message-time');
@@ -82,7 +91,7 @@ function createMessage(message: Messages, addMessageMethd = 'append') {
         }else{
             templateMessage.classList.add('message__left-side');
         }
-        if(addMessageMethd === 'prepend') {
+        if(addMessageMethod === 'prepend') {
             MESSAGE_ELEMENTS.LIST?.prepend(templateMessage);
         }else{
             MESSAGE_ELEMENTS.LIST?.append(templateMessage);

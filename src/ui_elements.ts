@@ -1,9 +1,9 @@
 interface MessagesUI {
-    SEND_FORM: HTMLFormElement | null;
-    TEXT_INPUT: HTMLInputElement | null;
-    TEMPLATE: HTMLTemplateElement | null;
-    LIST: HTMLUListElement | null;
-    OUTPUT_PLACE: HTMLDivElement | null;
+    SEND_FORM: HTMLFormElement | null,
+    TEXT_INPUT: HTMLInputElement | null,
+    TEMPLATE: HTMLTemplateElement | null,
+    LIST: HTMLUListElement | null,
+    OUTPUT_PLACE: HTMLDivElement | null
 }
 
 interface AutorizationUI {
@@ -22,9 +22,16 @@ interface ConfirmationUI {
 interface SettingsUI {
     BUTTON_OPEN: HTMLButtonElement | null,
     DIALOG : HTMLDialogElement | null,
-    FORM : HTMLFormElement | null
+    FORM : HTMLFormElement | null,
     NAME_INPUT: HTMLInputElement | null,
     INFO_ALERT: HTMLParagraphElement | null
+}
+
+interface SearchUI {
+    FORM: HTMLFormElement | null,
+    INPUT_MESSAGES: HTMLInputElement | null,
+    LIST: HTMLUListElement | null,
+    BUTTON_CLEAR : HTMLButtonElement | null
 }
 
 interface AdditionalUI {
@@ -63,10 +70,24 @@ const SETTINGS_DIALOG: SettingsUI = {
     INFO_ALERT: document.querySelector('.setting__warning')
 }
 
+const SEARCH_ELEMENTS : SearchUI = {
+    FORM: document.querySelector('.form__search'),
+    INPUT_MESSAGES: document.querySelector('.form__search-input'),
+    LIST: document.querySelector('.chat__search-list'),
+    BUTTON_CLEAR: document.querySelector('.btn__clear_search')
+}
+
 const ADDITIONAL_ELEMENTS: AdditionalUI = {
     INFO_ALERT: document.querySelector('.info_alert'),
     BUTTON_EXIT: document.querySelector('.chat__exit-btn'),
     MAIN_SECTION: document.querySelector('.main')
 };
 
-export { MESSAGE_ELEMENTS, AUTHORIZATION_ELEMENTS, CONFIRM_DIALOG, SETTINGS_DIALOG, ADDITIONAL_ELEMENTS };
+export { 
+    MESSAGE_ELEMENTS, 
+    AUTHORIZATION_ELEMENTS, 
+    CONFIRM_DIALOG, 
+    SETTINGS_DIALOG, 
+    ADDITIONAL_ELEMENTS, 
+    SEARCH_ELEMENTS 
+};

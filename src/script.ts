@@ -1,11 +1,12 @@
 import Cookies from "js-cookie";
 
 import { senTokenToEmail, getUserRequest, changeUserNameRequest } from "./requests.js";
-import { AUTHORIZATION_ELEMENTS, CONFIRM_DIALOG, MESSAGE_ELEMENTS, SETTINGS_DIALOG, ADDITIONAL_ELEMENTS  } from "./ui_elements.js";
+import { AUTHORIZATION_ELEMENTS, CONFIRM_DIALOG, MESSAGE_ELEMENTS, SETTINGS_DIALOG, ADDITIONAL_ELEMENTS, SEARCH_ELEMENTS  } from "./ui_elements.js";
 import { initialChat, setDynamicOutputMessagesHeight } from "./initial.js";
 import { WEB_SOKET_URL, closeWebSocket, connectWebSocket } from "./websocket.js";
 import { scrollHandler } from "./scroll.js";
 import { renderMessages } from "./messages.js";
+import { clearSearched, searchMessages } from "./search_message.js";
 
 AUTHORIZATION_ELEMENTS.DIALOG?.showModal();
 AUTHORIZATION_ELEMENTS.FORM?.addEventListener('submit', sendAuthCode);
@@ -17,6 +18,9 @@ SETTINGS_DIALOG.BUTTON_OPEN?.addEventListener('click', showSetting);
 SETTINGS_DIALOG.FORM?.addEventListener('submit', changeUserName); 
 ADDITIONAL_ELEMENTS.BUTTON_EXIT?.addEventListener('click', exitChat);
 window.addEventListener('resize', setDynamicOutputMessagesHeight);
+
+SEARCH_ELEMENTS.FORM?.addEventListener('submit', searchMessages);
+SEARCH_ELEMENTS.BUTTON_CLEAR?.addEventListener('click', clearSearched)
 
 initialChat();
 
@@ -60,11 +64,8 @@ function sendAuthCode(event: Event){
 }
 
 function showConfirmTokenDialog(){
-
     AUTHORIZATION_ELEMENTS.DIALOG?.close();
-    CONFIRM_DIALOG.DIALOG?.showModal();
-
-   
+    CONFIRM_DIALOG.DIALOG?.showModal();  
 }
 
 async function confirmTokenAuthorization(event: Event){
