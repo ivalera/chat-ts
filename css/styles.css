@@ -68,6 +68,7 @@ body{
     width: 20px;
     height: 20px;
     background: var(--theme-main-color-black) url("../img/close-icon.svg") center no-repeat;
+    visibility: hidden;
 }
 .main{
     height: 100%;

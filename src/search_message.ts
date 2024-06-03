@@ -25,7 +25,7 @@ function searchMessages(event: Event){
 		let foundMessages = messagesStorage.filter(element => 
 			element.text.toLocaleLowerCase().includes(messageSearch.toLocaleLowerCase()));
         if(foundMessages.length !== 0) {
-            SEARCH_ELEMENTS.BUTTON_CLEAR.hidden = false;
+            SEARCH_ELEMENTS.BUTTON_CLEAR.style.visibility = "visible";
         }
 		foundMessages.forEach(element => {
 			const messageSearch = document.createElement('li');
@@ -65,7 +65,7 @@ function clearSearched(){
 
     SEARCH_ELEMENTS.INPUT_MESSAGES.value = "";
     SEARCH_ELEMENTS.INPUT_MESSAGES.placeholder = "Введите текст для поиска";
-    SEARCH_ELEMENTS.BUTTON_CLEAR.hidden = true;
+    SEARCH_ELEMENTS.BUTTON_CLEAR.style.visibility = "hidden";
 }
 
 export { searchMessages, clearSearched };
